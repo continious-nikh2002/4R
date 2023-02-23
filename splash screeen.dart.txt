@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+abstract class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context);
+
+  const colorizeColors = [
+    Colors.purple,
+    Colors.blue,
+    Colors.yellow,
+    Colors.red,
+  ];
+
+  const colorizeTextStyle = TextStyle(
+    fontSize: 50.0,
+    fontFamily: 'Lato',
+  );
+
+  return Scaffold(
+  backgroundColor: Colors.cyan,
+  body: Center(
+  child: Column(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+  Image.asset(
+  'assets/images/logo.png',
+  color: Colors.white,
+  ),  // Image.asset
+SizedBox(
+  height: 10,
+  //need an animated text
+   SizedBox(
+  width: 250.0,
+  child: AnimatedTextKit(
+  animatedTexts: [
+  ColorizeAnimatedText(
+  'Larry Page',
+  textStyle: colorizeTextStyle,
+  colors: colorizeColors,
+  ), //ColorizeAnimatedText
+],
+  isRepeatingAnimation: true,
+  onTap: () {
+  print("Tap Event");
+  },
+  ),//AnimatedTextkit
+  ), // Sizedbox
+    ],
+    ), // Column
+  ), // Center
+ ), // Scaffold
+}
+}
